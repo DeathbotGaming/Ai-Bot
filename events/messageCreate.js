@@ -12,7 +12,7 @@ const conversations = new Map();
 
 module.exports = async (client, message) => {
 
-    if (message.channel.type === Discord.ChannelType.DM || message.author.bot || message.system) return;
+    if (message.channel.type === message.author.bot || message.system) return;
 
     // Auto Moderation
     if (moderation.State && !moderation.IgnoredChannels.includes(message.channelId) && !moderation.IgnoredUsers.includes(message.author.id)) {
